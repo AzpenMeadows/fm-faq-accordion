@@ -1,0 +1,141 @@
+:root {
+    --clr-bkgr-body: hsl(275, 100%, 97%);
+    --clr-bkgr-main: hsl(0, 0%, 100%);
+    --clr-heading: hsl(292, 42%, 14%);
+    --clr-text: hsl(292, 16%, 49%);
+    --clr-toggle: hsl(282, 76%, 53%);
+    --clr-toggle--active: hsl(292, 42%, 14%);
+    --clr-border: hsla(293, 16%, 49%, 0.082);
+
+    --ft-family: "Work Sans", sans-serif;
+
+    --ft-weight-regular: 400;
+    --ft-weight-bold: 600;
+    --ft-weight-black: 700;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    font-family: var(--ft-family);
+    background-color: var(--clr-bkgr-body);
+}
+
+img {
+    width: 100%;
+}
+
+.bkgr-img {
+    z-index: -1;
+}
+
+.container {
+    width: 85%;
+    max-width: 35rem;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.row--title {
+    justify-content: flex-start;
+}
+
+
+
+.toggle {
+    --toggle-size: 2em;
+    flex-shrink: 0;
+    width: var(--toggle-size); 
+    height: var(--toggle-size);
+    background-color: var(--clr-toggle);
+    border-radius: 50%;
+    border: none;
+}
+
+.toggle:hover {
+    cursor: pointer;
+    opacity: 85%;
+}
+
+.toggle__graphic {
+    width: 80%;
+    height: 2px;
+    margin: 0 auto;
+    background-color: var(--clr-bkgr-main);
+    transition: 500ms;
+}
+
+.toggle__graphic::before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: var(--clr-bkgr-main);
+    transform: rotate(90deg);
+}
+
+.card {
+    padding: 2rem 1.5rem;
+    background-color: var(--clr-bkgr-main);
+    border-radius: 10px;
+    transform: translateY(-8rem);
+}
+
+.faq-1,
+.faq-2,
+.faq-3 {
+    border-bottom: 2px solid var(--clr-border);
+}
+
+.heading {
+    padding-block: 1.5rem;
+    font-size: 1rem;
+    font-weight: var(--ft-weight-black);
+    color: var(--clr-heading);
+}
+
+.heading--large {
+    padding: 0;
+    font-size: 2rem;
+}
+
+.text {
+    display: none;
+    padding-bottom: 1.5rem;
+    color: var(--clr-text);
+    opacity: 90%;
+    transition: 500ms;
+}
+
+.open .toggle {
+    background-color: var(--clr-toggle--active);
+}
+
+.open .toggle__graphic {
+    rotate: 180deg;
+}
+
+.open .toggle__graphic::before {
+    transform: rotate(180deg);
+}
+
+.open .text {
+    display: block;
+}
+
+
+
